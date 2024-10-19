@@ -56,7 +56,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">CRUDS:</h6>
                         <a class="collapse-item" href="buttons.html">Cliente</a>
-                        <a class="collapse-item" href="/EmpList">Empleado</a>
+                        <a class="collapse-item" th:href="/EmpList">Empleado</a>
                         <a class="collapse-item" href="cards.html">Proveedor</a>
                         <a class="collapse-item" href="cards.html">Categoria</a>
                     </div>
@@ -229,9 +229,9 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">LISTADO DE CLIENTES</h1>
+                    <h1 class="h3 mb-2 text-gray-800">LISTADO DE EMPLEADOS</h1>
                     <a href="/RegistroCli" class="btn btn-primary btn-icon-split">
-                       <span class="text">Agregar Cliente</span>
+                       <span class="text">Agregar Empleado</span>
                     </a>
                     <div class="my-4"></div>              
                  <!-- DataTales Example -->
@@ -248,19 +248,31 @@
                                             <th>DNI</th>
                                             <th>NOMBRE</th>
                                             <th>APELLIDO</th>
+                                            <th>TELEFONO</th>
+                                            <th>CORREO</th>
+                                            <th>DIRECCION</th>
+                                            <th>TIPO USUARIO</th>
+                                            <th>USUARIO</th>
+                                            <th>PASSWORD</th>
                                             <th>ACCIONES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="cliente : ${listadoClientes}">
-                                            <td th:text="${cliente.codCliente}"></td>
-                                            <td th:text="${cliente.dniCliente}"></td>
-                                            <td th:text="${cliente.nombreCliente}"></td>
-                                            <td th:text="${cliente.apellidoCliente}"></td>
+                                        <tr th:each="empleado : ${listadoEmpleados}">
+                                            <td th:text="${empleado.codEmpleado}"></td>
+                                            <td th:text="${empleado.dniEmpleado}"></td>
+                                            <td th:text="${empleado.nombreEmpleado}"></td>
+                                            <td th:text="${empleado.apellidoEmpleado}"></td>
+                                            <td th:text="${empleado.telefonoEmpleado}"></td>
+                                            <td th:text="${empleado.correoEmpleado}"></td>
+                                            <td th:text="${empleado.direccionEmpleado}"></td>
+                                            <td th:text="${empleado.tipoUsuario}"></td>
+                                            <td th:text="${empleado.nombreUsuario}"></td>
+                                            <td th:text="${empleado.passwordUsuario}"></td>
                                             <td>
-                                            	<a class="btn btn-primary" th:href="@{'/EditarCli/' + ${cliente.codCliente}}">Editar</a>
+                                            	<a class="btn btn-primary" th:href="@{'/EditarEmp/' + ${empleado.codEmpleado}}">Editar</a>
                                             	
-                                            	<a class="btn btn-danger" th:href="@{'/EliminarCli/' + ${cliente.codCliente}}">Eliminar</a>
+                                            	<a class="btn btn-danger" th:href="@{'/EliminarEmp/' + ${empleado.codEmpleado}}">Eliminar</a>
                                             </td>
                                         </tr>
                                         

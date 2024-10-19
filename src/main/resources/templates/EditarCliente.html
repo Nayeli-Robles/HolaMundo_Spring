@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Inicio</title>
+<title>Editar Cliente</title>
 
 <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,7 +56,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">CRUDS:</h6>
                         <a class="collapse-item" href="buttons.html">Cliente</a>
-                        <a class="collapse-item" href="/EmpList">Empleado</a>
+                        <a class="collapse-item" href="cards.html">Empleado</a>
                         <a class="collapse-item" href="cards.html">Proveedor</a>
                         <a class="collapse-item" href="cards.html">Categoria</a>
                     </div>
@@ -225,53 +225,49 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                
-                <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">LISTADO DE CLIENTES</h1>
-                    <a href="/RegistroCli" class="btn btn-primary btn-icon-split">
-                       <span class="text">Agregar Cliente</span>
-                    </a>
-                    <div class="my-4"></div>              
-                 <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>DNI</th>
-                                            <th>NOMBRE</th>
-                                            <th>APELLIDO</th>
-                                            <th>ACCIONES</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="cliente : ${listadoClientes}">
-                                            <td th:text="${cliente.codCliente}"></td>
-                                            <td th:text="${cliente.dniCliente}"></td>
-                                            <td th:text="${cliente.nombreCliente}"></td>
-                                            <td th:text="${cliente.apellidoCliente}"></td>
-                                            <td>
-                                            	<a class="btn btn-primary" th:href="@{'/EditarCli/' + ${cliente.codCliente}}">Editar</a>
-                                            	
-                                            	<a class="btn btn-danger" th:href="@{'/EliminarCli/' + ${cliente.codCliente}}">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                
-                </div>
-   </div> 
+
+				<div class="container">
+					<div class="row">
+						<div
+							class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+							<br>
+							<h1 class="text-center">Registro de Cliente</h1>
+							<div class="card-body">
+								<form th:action="@{/GuardarCli}" th:object="${cli}"
+									method="post">
+									<input type="hidden" th:field="*{codCliente}" />
+									<div class="form-group">
+										<label>Codigo del cliente</label> <input type="text"
+											name="codCliente" th:field="*{codCliente}"
+											class="form-control" readonly="readonly">
+									</div>
+									<div class="form-group">
+										<label>Nombre : </label> <input type="text"
+											name="nombreCliente" th:field="*{nombreCliente}"
+											class="form-control" placeholder="Digite el nombre">
+									</div>
+									<div class="form-group">
+										<label>Apellido : </label> <input type="text"
+											name="apellidoCliente" th:field="*{apellidoCliente}"
+											class="form-control" placeholder="Digite el apellido">
+									</div>
+									<div class="form-group">
+										<label>DNI : </label> <input type="text" name="dniCliente"
+											th:field="*{dniCliente}" class="form-control"
+											placeholder="Digite el dni">
+									</div>
+
+									<div class="box-footer">
+										<button class="btn btn-success">Guardar</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div> 
 	</div>	
 	
 </div>
