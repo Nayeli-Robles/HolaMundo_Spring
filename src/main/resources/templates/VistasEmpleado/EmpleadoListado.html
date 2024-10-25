@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Editar Cliente</title>
+<title>Inicio</title>
 
 <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -225,68 +225,84 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                
+                <div class="container-fluid">
 
-
-				<div class="container">
-					<div class="row">
-						<div
-							class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-							<br>
-							<h1 class="text-center">Registro de Cliente</h1>
-							<div class="card-body">
-								<form th:action="@{/GuardarCli}" th:object="${cli}"
-									method="post">
-									<input type="hidden" th:field="*{codCliente}" />
-									<div class="form-group">
-										<label>Codigo del cliente</label> <input type="text"
-											name="codCliente" th:field="*{codCliente}"
-											class="form-control" readonly="readonly">
-									</div>
-									<div class="form-group">
-										<label>Nombre : </label> <input type="text"
-											name="nombreCliente" th:field="*{nombreCliente}"
-											class="form-control" placeholder="Digite el nombre">
-									</div>
-									<div class="form-group">
-										<label>Apellido : </label> <input type="text"
-											name="apellidoCliente" th:field="*{apellidoCliente}"
-											class="form-control" placeholder="Digite el apellido">
-									</div>
-									<div class="form-group">
-										<label>DNI : </label> <input type="text" name="dniCliente"
-											th:field="*{dniCliente}" class="form-control"
-											placeholder="Digite el dni">
-									</div>
-
-									<div class="box-footer">
-										<button class="btn btn-success">Guardar</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div> 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">LISTADO DE EMPLEADOS</h1>
+                    <a href="/VistasEmpleado/RegistroEmp" class="btn btn-primary btn-icon-split">
+                       <span class="text">Agregar Empleado</span>
+                    </a>
+                    <div class="my-4"></div>              
+                 <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>DNI</th>
+                                            <th>NOMBRE</th>
+                                            <th>APELLIDO</th>
+                                            <th>TELEFONO</th>
+                                            <th>CORREO</th>
+                                            <th>DIRECCION</th>
+                                            <th>TIPO USUARIO</th>
+                                            <th>USUARIO</th>
+                                            <th>PASSWORD</th>
+                                            <th>ACCIONES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="empleado : ${listadoEmpleados}">
+                                            <td th:text="${empleado.codEmpleado}"></td>
+                                            <td th:text="${empleado.dniEmpleado}"></td>
+                                            <td th:text="${empleado.nombreEmpleado}"></td>
+                                            <td th:text="${empleado.apellidoEmpleado}"></td>
+                                            <td th:text="${empleado.telefonoEmpleado}"></td>
+                                            <td th:text="${empleado.correoEmpleado}"></td>
+                                            <td th:text="${empleado.direccionEmpleado}"></td>
+                                            <td th:text="${empleado.tipoUsuario}"></td>
+                                            <td th:text="${empleado.nombreUsuario}"></td>
+                                            <td th:text="${empleado.passwordUsuario}"></td>
+                                            <td>
+                                            	<a class="btn btn-primary" th:href="@{'/VistasEmpleado/EditarEmp/' + ${empleado.codEmpleado}}">Editar</a>
+                                            	
+                                            	<a class="btn btn-danger" th:href="@{'/VistasEmpleado/EliminarEmp/' + ${empleado.codEmpleado}}">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+   </div> 
 	</div>	
 	
 </div>
 	
 <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="/js/demo/chart-area-demo.js"></script>
+    <script src="/js/demo/chart-pie-demo.js"></script>
 </body>
 </html>

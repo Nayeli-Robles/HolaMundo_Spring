@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Editar Cliente</title>
+<title>Registrar Proveedor</title>
 
 <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -232,30 +232,39 @@
 						<div
 							class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 							<br>
-							<h1 class="text-center">Registro de Cliente</h1>
+							<h1 class="text-center">Registro de Empleado</h1>
 							<div class="card-body">
-								<form th:action="@{/GuardarCli}" th:object="${cli}"
+								<form th:action="@{/VistasProveedor/GuardarProv}" th:object="${prov}"
 									method="post">
-									<input type="hidden" th:field="*{codCliente}" />
-									<div class="form-group">
-										<label>Codigo del cliente</label> <input type="text"
-											name="codCliente" th:field="*{codCliente}"
-											class="form-control" readonly="readonly">
-									</div>
 									<div class="form-group">
 										<label>Nombre : </label> <input type="text"
-											name="nombreCliente" th:field="*{nombreCliente}"
+											name="nombreProveedor" th:field="*{nombreProveedor}"
 											class="form-control" placeholder="Digite el nombre">
 									</div>
 									<div class="form-group">
-										<label>Apellido : </label> <input type="text"
-											name="apellidoCliente" th:field="*{apellidoCliente}"
-											class="form-control" placeholder="Digite el apellido">
+										<label>Ruc : </label> <input type="text"
+											name="rucProveedor" th:field="*{rucProveedor}"
+											class="form-control" placeholder="Ruc">
 									</div>
 									<div class="form-group">
-										<label>DNI : </label> <input type="text" name="dniCliente"
-											th:field="*{dniCliente}" class="form-control"
-											placeholder="Digite el dni">
+										<label>Telefono : </label> <input type="text"
+											name="telefonoProveedor" th:field="*{telefonoProveedor}"
+											class="form-control" placeholder="Telefono">
+									</div>
+									<div class="form-group">
+										<label>Correo electronico : </label> <input type="text"
+											name="correoProveedor" th:field="*{correoProveedor}"
+											class="form-control" placeholder="Correo">
+									</div>
+									<div class="form-group">
+										<label>Direccion : </label> <input type="text"
+											name="direccionProveedor" th:field="*{direccionProveedor}"
+											class="form-control" placeholder="Direccion">
+									</div>
+									<div class="form-group">
+										<label>Web : </label> <input type="text"
+											name="webProveedor" th:field="*{webProveedor}"
+											class="form-control" placeholder="web">
 									</div>
 
 									<div class="box-footer">
@@ -273,20 +282,20 @@
 </div>
 	
 <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="/js/demo/chart-area-demo.js"></script>
+    <script src="/js/demo/chart-pie-demo.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.farmacia.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.farmacia.model.Empleado;
 import com.farmacia.servicio.EmpleadoServicio;
-
+@Controller
+@RequestMapping("/VistasEmpleado")
 public class EmpleadoControlador {
 
 	@Autowired
@@ -22,20 +24,20 @@ public class EmpleadoControlador {
 	public String LsitadoEmpleado(Model modelo) {
 		List<Empleado> listadoEmpleados = empSer.listAll();
 		modelo.addAttribute("listadoEmpleados", listadoEmpleados);
-		return "EmpleadoListado";
+		return "/VistasEmpleado/EmpleadoListado";
 	}
 	
 	@RequestMapping("/RegistroEmp")
 	public String RegistrarEmpleado(Model modelo) {
 		Empleado emp= new Empleado();
 		modelo.addAttribute("emp", emp);
-		return "RegistrarEmpleado";
+		return "/VistasEmpleado/RegistrarEmpleado";
 	}
 	
 	@RequestMapping(value = "/GuardarEmp", method = RequestMethod.POST)
 	public String GuardarEmpleado(@ModelAttribute("emp") Empleado emp) {
 		empSer.save(emp);
-		return "redirect:/";
+		return "redirect:/VistasEmpleado/EmpList";
 	}
 	
 	@RequestMapping("/EditarEmp/{codEmpleado}")
@@ -49,7 +51,7 @@ public class EmpleadoControlador {
 	@RequestMapping("/EliminarEmp/{codEmpleado}")
 	public String EliminarEmpleado(@PathVariable(name = "codEmpleado")Integer codEmpleado) {
 		empSer.delete(codEmpleado);
-		return "redirect:/";
+		return "redirect:/VistasEmpleado/EmpList";
 	}
 	
 }

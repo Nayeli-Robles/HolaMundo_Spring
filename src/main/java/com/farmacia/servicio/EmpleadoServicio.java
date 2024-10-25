@@ -3,10 +3,12 @@ package com.farmacia.servicio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.farmacia.model.Empleado;
 import com.farmacia.repositorio.EmpleadoRepositorio;
 
+@Service
 public class EmpleadoServicio {
 
 	@Autowired
