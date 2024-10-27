@@ -236,6 +236,11 @@
 							<div class="card-body">
 								<form th:action="@{/VistasEmpleado/GuardarEmp}" th:object="${emp}"
 									method="post">
+									<div class="form-group">
+										<label>Codigo : </label> <input type="text"
+											name="codEmpleado" th:field="*{codEmpleado}"
+											class="form-control" readonly="readonly">
+									</div>
 									
 									<div class="form-group">
 										<label>Nombre : </label> <input type="text"

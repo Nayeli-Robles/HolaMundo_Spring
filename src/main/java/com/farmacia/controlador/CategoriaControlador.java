@@ -28,6 +28,7 @@ public class CategoriaControlador {
 		return "/VistasCategoria/CategoriaListado";
 	}
 	
+	
 	@RequestMapping("/RegistroCate")
 	public String RegistrarCategoria(Model modelo) {
 		Categoria cate= new Categoria();
@@ -35,24 +36,27 @@ public class CategoriaControlador {
 		return "/VistasCategoria/RegistrarCategoria";
 	}
 	
+	
 	@RequestMapping(value = "/GuardarCate", method = RequestMethod.POST)
 	public String GuardarCategoria(@ModelAttribute("cate") Categoria cate) {
 		cateSer.save(cate);
 		return "redirect:/VistasCategoria/CateList";
 	}
 	
+
 	@RequestMapping("/EditarCate/{numCategoria}")
 	public ModelAndView EditarCategoria(@PathVariable(name = "numCategoria")Integer numCategoria) {
-		ModelAndView modelo = new ModelAndView("EditarCategoria");
+		ModelAndView modelo = new ModelAndView("/VistasCategoria/EditarCategoria");
 		Categoria cate = cateSer.get(numCategoria);
 		modelo.addObject("cate", cate);
 		return modelo;
 	}
+	
 	
 	@RequestMapping("/EliminarCate/{numCategoria}")
 	public String EliminarCategoria(@PathVariable(name = "numCategoria")Integer numCategoria) {
 		cateSer.delete(numCategoria);
 		return "redirect:/VistasCategoria/CateList";
 	}
-
+	
 }

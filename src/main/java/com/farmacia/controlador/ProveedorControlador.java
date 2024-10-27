@@ -45,7 +45,7 @@ public class ProveedorControlador {
 	
 	@RequestMapping("/EditarProv/{codProveedor}")
 	public ModelAndView EditarProveedor(@PathVariable(name = "codProveedor")Integer codProveedor) {
-		ModelAndView modelo = new ModelAndView("EditarProveedor");
+		ModelAndView modelo = new ModelAndView("/VistasProveedor/EditarProveedor");
 		Proveedor prov = provSer.get(codProveedor);
 		modelo.addObject("prov", prov);
 		return modelo;

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Registrar Cliente</title>
+<title>Registrar Proveedor</title>
 
 <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -234,53 +234,42 @@
 							<br>
 							<h1 class="text-center">Registro de Empleado</h1>
 							<div class="card-body">
-								<form th:action="@{/VistasEmpleado/GuardarEmp}" th:object="${emp}"
+								<form th:action="@{/VistasProveedor/GuardarProv}" th:object="${prov}"
 									method="post">
-									
+									<div class="form-group">
+										<label>Codigo : </label> <input type="text"
+											name="codProveedor" th:field="*{codProveedor}"
+											class="form-control" readonly="readonly">
+									</div>
 									<div class="form-group">
 										<label>Nombre : </label> <input type="text"
-											name="nombreEmpleado" th:field="*{nombreEmpleado}"
+											name="nombreProveedor" th:field="*{nombreProveedor}"
 											class="form-control" placeholder="Digite el nombre">
 									</div>
 									<div class="form-group">
-										<label>Apellido : </label> <input type="text"
-											name="apellidoEmpleado" th:field="*{apellidoEmpleado}"
-											class="form-control" placeholder="Digite el apellido">
-									</div>
-									<div class="form-group">
-										<label>DNI : </label> <input type="text" name="dniEmpleado"
-											th:field="*{dniEmpleado}" class="form-control"
-											placeholder="Digite el dni">
+										<label>Ruc : </label> <input type="text"
+											name="rucProveedor" th:field="*{rucProveedor}"
+											class="form-control" placeholder="Ruc">
 									</div>
 									<div class="form-group">
 										<label>Telefono : </label> <input type="text"
-											name="telefonoEmpleado" th:field="*{telefonoEmpleado}"
+											name="telefonoProveedor" th:field="*{telefonoProveedor}"
 											class="form-control" placeholder="Telefono">
 									</div>
 									<div class="form-group">
 										<label>Correo electronico : </label> <input type="text"
-											name="correoEmpleado" th:field="*{correoEmpleado}"
+											name="correoProveedor" th:field="*{correoProveedor}"
 											class="form-control" placeholder="Correo">
 									</div>
 									<div class="form-group">
 										<label>Direccion : </label> <input type="text"
-											name="direccionEmpleado" th:field="*{direccionEmpleado}"
+											name="direccionProveedor" th:field="*{direccionProveedor}"
 											class="form-control" placeholder="Direccion">
 									</div>
 									<div class="form-group">
-										<label>Tipo de Usuario : </label> <input type="text"
-											name="tipoUsuario" th:field="*{tipoUsuario}"
-											class="form-control" placeholder="Tipo de Usuario">
-									</div>
-									<div class="form-group">
-										<label>Nombre de Usuario : </label> <input type="text"
-											name="nombreUsuario" th:field="*{nombreUsuario}"
-											class="form-control" placeholder="Nombre de Usuario">
-									</div>
-									<div class="form-group">
-										<label>Contraseña de Usuario : </label> <input type="text"
-											name="passwordUsuario" th:field="*{passwordUsuario}"
-											class="form-control" placeholder="Contraseña de Usuario">
+										<label>Web : </label> <input type="text"
+											name="webProveedor" th:field="*{webProveedor}"
+											class="form-control" placeholder="web">
 									</div>
 
 									<div class="box-footer">

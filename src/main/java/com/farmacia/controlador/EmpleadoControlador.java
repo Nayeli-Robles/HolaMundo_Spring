@@ -42,7 +42,7 @@ public class EmpleadoControlador {
 	
 	@RequestMapping("/EditarEmp/{codEmpleado}")
 	public ModelAndView EditarEmpleado(@PathVariable(name = "codEmpleado")Integer codEmpleado) {
-		ModelAndView modelo = new ModelAndView("EditarEmpleado");
+		ModelAndView modelo = new ModelAndView("/VistasEmpleado/EditarEmpleado");
 		Empleado emp = empSer.get(codEmpleado);
 		modelo.addObject("emp", emp);
 		return modelo;
